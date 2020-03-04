@@ -1,0 +1,24 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.travels.busreservation.repository.AgencyRepository">
+
+    <resultMap id="AgencyResultMap" type="Agency">
+        <id column="id"  property="id"  />
+        <result column="code"  property="code"  />
+        <result column="name"  property="name"  />
+        <result column="details"  property="details"  />
+        <result column="owner"  property="owner"  />
+    </resultMap>
+
+    <select id="getAll" resultMap="AgencyResultMap">
+        select id, code, name, details, owner from agency
+    </select>
+
+    <insert id="insert" parameterType="Agency">
+        insert into agency(code, name, details, owner) values(#{code},#{name},#{details},#{owner})
+    </insert>
+
+</mapper>
+
